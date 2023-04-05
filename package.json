@@ -1,0 +1,11 @@
+{
+  "name": "aws-sls-sep-22",
+  "version": "1.0.0",
+  "description": "sls serverless sep-2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Orest",
+  "license": "ISC"
+}
