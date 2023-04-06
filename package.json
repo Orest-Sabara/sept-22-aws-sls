@@ -4,8 +4,21 @@
   "description": "sls serverless sep-2022",
   "main": "index.js",
   "scripts": {
+    "start:dev": "SET NODE_ENV=dev & sls offline start",
+    "start:prod": "SET NODE_ENV=prod & sls offline start",
+    "deploy:dev": "sls deploy --stage dev",
+    "deploy:prod": "sls deploy --stage prod",
+    "remove:dev": "sls deploy --stage dev",
+    "remove:prod": "sls deploy --stage prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Orest",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^5.2.0",
+    "serverless-dotenv-plugin": "^6.0.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^12.0.4"
+  }
 }
