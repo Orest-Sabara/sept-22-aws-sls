@@ -1,10 +1,7 @@
-// const { MongoClient } = require("mongodb")
-//
-// const {configs} = require("../configs");
 const {dbConnection} = require("../mongo.client");
 
 const getTodos = async () => {
-    const todos = await dbConnection.collection("todos").find({});
+    const todos = await dbConnection.collection("todos").find({}).toArray();
 
     return {
         statusCode: 200,

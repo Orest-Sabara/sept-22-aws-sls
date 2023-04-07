@@ -1,3 +1,5 @@
+#org: 0rest5abara
+app: todo-list
 service: aws-sls-sep-22
 frameworkVersion: '3'
 
@@ -8,7 +10,8 @@ plugins:
 provider:
   name: aws
   runtime: nodejs16.x
-  versionFunctions: true
+#  region: us-east-1
+#  versionFunctions: true
 
 functions:
   getTodos:
@@ -23,3 +26,22 @@ functions:
       - httpApi:
           path: /todos
           method: post
+
+  getTodo:
+    handler: src/handlers/get-todo.handler
+    events:
+      - httpApi:
+          path: /todos/{todoId}
+          method: get
+  updateTodo:
+    handler: src/handlers/update-todo.handler
+    events:
+      - httpApi:
+          path: /todos/{todoId}
+          method: patch
+  deleteTodo:
+    handler: src/handlers/delete-todo.handler
+    events:
+      - httpApi:
+          path: /todos/{todoId}
+          method: delete

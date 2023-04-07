@@ -4,8 +4,9 @@
   "description": "sls serverless sep-2022",
   "main": "index.js",
   "scripts": {
-    "start:dev": "SET NODE_ENV=dev & sls offline start",
-    "start:prod": "SET NODE_ENV=prod & sls offline start",
+    "start:local": "sls offline start",
+    "start:dev": "sls offline start --stage dev",
+    "start:prod": "sls offline start --stage prod",
     "deploy:dev": "sls deploy --stage dev",
     "deploy:prod": "sls deploy --stage prod",
     "remove:dev": "sls deploy --stage dev",
@@ -15,6 +16,7 @@
   "author": "Orest",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "mongodb": "^5.2.0",
     "serverless-dotenv-plugin": "^6.0.0"
   },

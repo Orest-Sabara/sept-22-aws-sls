@@ -1,19 +1,17 @@
-// const {dbConnection} = require("../mongo.client");
+const {dbConnection} = require("../mongo.client");
 
 const createTodo = async (event) => {
     const {todo} = JSON.parse(event.body);
+    const date = new Date().toISOString();
 
-    // const date = new Date().toISOString();
-    //
-    // const newTodo = {
-    //     createdAt: date,
-    //     updatedAt: date,
-    //     completed: false
-    // }
-    //
-    // await dbConnection.collection('todos').insertOne(newTodo);
+    const newTodo = {
+        todo,
+        createdAt: date,
+        updatedAt: date,
+        completed: false
+    }
 
-    console.log(todo)
+    await dbConnection.collection('todos').insertOne(newTodo);
 
     return {
         statusCode: 201,
